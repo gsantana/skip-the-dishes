@@ -3,6 +3,7 @@ class Order < ApplicationRecord
 
   validates :deliver_late, :status, presence: true
   belongs_to :customer
+  has_many :items
 
   protected
 
