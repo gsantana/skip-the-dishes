@@ -10,4 +10,6 @@ class Restaurant < ApplicationRecord
     :days_of_the_week,
     presence: true
   )
+
+  has_many :dishes
 end
