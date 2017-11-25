@@ -4,12 +4,51 @@ RSpec.describe OrdersController, type: :request do
 
   describe 'POST create' do
     let(:customer) { create :customer }
+    let(:restaurant) { create :restaurant }
+    let(:dish) do
+      restaurant.dishes << build(:dish)
+      restaurant.dishes.first
+    end
 
+    let(:item) do 
+      item = build :item 
+      item.dish = dish
+      item.save
+      item
+    end
     let(:valid_params) do
-      { data: { type: 'orders', attributes: { deliver_late: Time.now },
-                relationships: { customer:
-                          { data: { type: 'customers', id: customer.id } } } } }
-        .to_json
+      {
+      	data: {
+      		type: 'orders',
+      		attributes: {
+      			deliver_late: Time.now
+      		},
+      		relationships: {
+      			customer: {
+      				data: {
+      					type: 'customers',
+      					id: customer.id
+      				}
+      			},
+            items: {
+              data: [
+                {
+                  type: "items",
+                  attributes: {
+                    quantity: 10,
+                  },
+                  relationships: {
+                    dish: {
+                      type: 'dishes',
+                      id: dish.id
+                    }
+                  }
+                }
+              ]
+            }
+      		}
+      	}
+      }.to_json
     end
 
     let(:headers) do
