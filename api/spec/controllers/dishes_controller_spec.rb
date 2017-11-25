@@ -7,7 +7,6 @@ RSpec.describe DishesController, type: :request do
     let(:restaurant) { create :restaurant }
 
     it do
-      pending
       id = restaurant.id
       post "/restaurants/#{id}/dishes", params: valid_params, headers: jsonapi_headers
       expect(response).to have_http_status(:created)
@@ -17,7 +16,9 @@ RSpec.describe DishesController, type: :request do
 end
 
 def build_params
-  { data: { type: 'dishes', attributes: build_attributes } }
+  { data: { type: 'dishes',
+            attributes: build_attributes,
+            relationships: build_relations } }
 end
 
 def build_attributes
@@ -25,5 +26,11 @@ def build_attributes
     name: 'Rice and Beans',
     price: 10.00,
     calories: 100
+  }
+end
+
+def build_relations
+  {
+    restaurant: { data: { type: 'restaurants', id: restaurant.id } }
   }
 end
