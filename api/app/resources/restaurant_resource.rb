@@ -1,5 +1,5 @@
-class Restaurant < ApplicationRecord
-  validates(
+class RestaurantResource < JSONAPI::Resource
+  attributes(
     :name,
     :contact_name,
     :contact_phone,
@@ -7,8 +7,7 @@ class Restaurant < ApplicationRecord
     :address,
     :open_at,
     :close_at,
-    :days_of_the_week,
-    presence: true
+    :days_of_the_week
   )
 
   has_many :dishes
