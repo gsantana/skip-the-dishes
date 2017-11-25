@@ -19,11 +19,25 @@ RSpec.describe OrdersController, type: :request do
       }
     end
 
-    context 'on success' do
+    context 'when succeed' do
       it do
         post '/orders', params: valid_params, headers: headers
-        json = JSON.parse(response.body)
         expect(response).to have_http_status(:created)
+        json = JSON.parse(response.body)
+        expect(json['data']['type']).to be_eql 'orders'
+      end
+    end
+
+    context 'when invalid' do
+      let(:invalid_param) do
+        { data: { type: 'orders', attributes: {} } }.to_json
+      end
+
+      it do
+        post '/orders', params: invalid_param, headers: headers
+        expect(response).to have_http_status(:unprocessable_entity)
+        json = JSON.parse(response.body)
+        expect(json['errors']).not_to be_empty
       end
     end
   end
