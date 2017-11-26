@@ -1,6 +1,3 @@
-class Dish < JsonApiClient::Resource
-  self.site = ENV.fetch('API_URL', 'http://localhost:3000')
-
+class Dish < BaseResource
   belongs_to :restaurant
-
 end
