@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     order.customer = Customer.find(customer_id)
     order.items << items
     order.save
-    OrderExecutorWorker.perform_async(order.id)
+    OrderExecutorWorker.perform_at(order.deliver_late, order.id)
     render json: serialize(order), status: :created
   rescue => e
     render json: {errors: e.message }, status: :unprocessable_entity
