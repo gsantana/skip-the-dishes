@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :dishes
   end
-
   resources :customers
+  root to: 'restaurants#index'
+
+  get '/login/:customer_id', to: 'sessions#login', as: 'logmein'
+  get '/logout', to: 'sessions#logout', as: 'logmeout'
 end
