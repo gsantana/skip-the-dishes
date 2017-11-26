@@ -1,3 +1,4 @@
+require 'random_word_generator'
 FactoryGirl.define do
   factory :dish do
     name { RandomWordGenerator.word }

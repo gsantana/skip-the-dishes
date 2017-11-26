@@ -1,0 +1,4 @@
+:schedule:
+  clusterization:
+    cron: '0 */5 * * * *' 
+    class: CustomerClusterizationWorker

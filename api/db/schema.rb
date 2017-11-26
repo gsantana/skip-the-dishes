@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124030330) do
+ActiveRecord::Schema.define(version: 20171126160909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customer_clusters", force: :cascade do |t|
+    t.integer  "dishes_in_c1"
+    t.integer  "dishes_in_c2"
+    t.integer  "dishes_in_c3"
+    t.integer  "dishes_in_c4"
+    t.integer  "dishes_in_c5"
+    t.integer  "dishes_in_c6"
+    t.integer  "centroid"
+    t.integer  "customer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["customer_id"], name: "index_customer_clusters_on_customer_id", using: :btree
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -26,10 +40,18 @@ ActiveRecord::Schema.define(version: 20171124030330) do
     t.index ["last_name"], name: "index_customers_on_last_name", using: :btree
   end
 
+  create_table "dish_clusters", force: :cascade do |t|
+    t.integer  "centroid"
+    t.integer  "dish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_dish_clusters_on_dish_id", using: :btree
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
-    t.string   "calories"
+    t.float    "calories"
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -68,6 +90,8 @@ ActiveRecord::Schema.define(version: 20171124030330) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "customer_clusters", "customers"
+  add_foreign_key "dish_clusters", "dishes"
   add_foreign_key "dishes", "restaurants"
   add_foreign_key "items", "dishes"
   add_foreign_key "items", "orders"

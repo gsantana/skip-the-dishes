@@ -1,6 +1,7 @@
+require 'random_word_generator'
 FactoryGirl.define do
   factory :restaurant do
-    name "MyString"
+    name { RandomWordGenerator.word }
     contact_name "MyString"
     contact_phone "MyString"
     email "MyString"
