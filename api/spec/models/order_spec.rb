@@ -46,4 +46,13 @@ RSpec.describe Order, type: :model do
       end
     end
   end
+
+  describe '.finish' do
+    it 'changes order status to finish' do
+      order = create(:customer).orders.create(valid_attributes)
+      expect(order.finished?).to eq(false)
+      order.finish
+      expect(order.finished?).to eq(true)
+    end
+  end
 end
