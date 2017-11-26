@@ -14,18 +14,32 @@
   <div class="form-group">
     <%= f.label 'Restaurant:' %>
     <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Contact Name:' %>
     <%= f.text_field :contact_name %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Contact Phone:' %>
     <%= f.text_field :contact_phone %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Email:' %>
     <%= f.text_field :email %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Address:' %>
     <%= f.text_field :address %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Open At:' %>
     <%= f.text_field :open_at %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Close At:' %>
     <%= f.text_field :close_at %>
+  </div>
+  <div class="form-group">
     <%= f.label 'Days of Week:' %>
     <%= f.text_field :days_of_the_week %>
   </div>
@@ -33,5 +47,6 @@
 
   <div class="forn-group">
     <%= f.submit class: 'btn btn-primary' %>
+    <%#= link_to 'Back', restaurants_path %>
   </div>
 <% end %>
