@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :dishes, only: [:create]
   end
 
+  post 'customers/:customer_id/orders/surprise', to: 'orders#surprise_order'
+
   resources :orders, only: :create
   mount Sidekiq::Web => '/sidekiq'
 end

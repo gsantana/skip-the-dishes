@@ -12,6 +12,10 @@ class OrdersController < ApplicationController
     render json: {errors: e.message }, status: :unprocessable_entity
   end
 
+  def surprise_order
+    SurpriseOrderExecutorWorker.perform_async(params[:customer_id])
+    render json: {message: 'ok'}, status: :created
+  end
 
   private
 
