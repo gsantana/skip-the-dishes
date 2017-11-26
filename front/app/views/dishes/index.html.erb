@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dishes</h1>
+
+
+<% @dishes.each do |dish| %>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
+                <h2><%= dish.name %></h2>
+                <p><b>Calories:</b> <%= dish.calories %></p>
+                <p><b>Price: $<%= sprintf('%05.2f', dish.price) %></b></p>
+                <p><%= link_to 'Show', restaurant_dish_path(@restaurant, dish) %></p>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+<%= link_to 'New Dish', new_restaurant_dish_path %>

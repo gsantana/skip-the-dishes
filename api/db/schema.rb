@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20171126160909) do
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
-    t.float    "calories"
+    t.string   "calories"
     t.integer  "restaurant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

@@ -1,0 +1,31 @@
+<%= form_with(model: dish, url: restaurant_dishes_path, local: true) do |f| %>
+  <% if dish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+
+      <ul>
+      <% dish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label 'Dish Name:' %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Price:' %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Calories:' %>
+    <%= f.text_field :calories %>
+  </div>
+
+  <div class="forn-group">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%#= link_to 'Back', restaurants_path %>
+  </div>
+<% end %>

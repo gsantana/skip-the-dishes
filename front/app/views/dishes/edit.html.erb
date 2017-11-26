@@ -1,0 +1,6 @@
+<h1>Editing Dish</h1>
+
+<%= render 'form', dish: @dish %>
+
+<%= link_to 'Show', restaurant_dish_path(@restaurant, @dish) %> |
+<%= link_to 'Back', restaurant_dishes_path %>

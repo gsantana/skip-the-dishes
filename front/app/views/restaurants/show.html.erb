@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+
+<h1><%= @restaurant.name %></h1>
+
+<p><b>Contact Name: </b><%= @restaurant.contact_name %></p>
+<p><b>Contact Phone: </b><%= @restaurant.contact_phone %></p>
+<p><b>Email: </b><%= @restaurant.email %></p>
+<p><b>Address: </b><%= @restaurant.address %></p>
+
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
