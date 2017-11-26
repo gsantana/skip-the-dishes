@@ -8,5 +8,6 @@ class OrderExecutorWorker
   def perform(order_id)
     order = Order.find order_id 
     order.finish
+    OrderMailer.order_processed_email(order).deliver_later
   end
 end
