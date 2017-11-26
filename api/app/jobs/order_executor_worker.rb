@@ -7,6 +7,9 @@ class OrderExecutorWorker
 
   def perform(order_id)
     order = Order.find order_id 
+
+    return true if order.finished?
+
     order.finish
     OrderMailer.order_processed_email(order).deliver_later
   end
