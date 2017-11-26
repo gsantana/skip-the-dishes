@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     jsonapi_resources :dishes, except: [:create]
   end
 
+  jsonapi_resources :customers
+
   resources :restaurants do
     resources :dishes, only: [:create]
   end
