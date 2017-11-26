@@ -5,6 +5,15 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :items
 
+  def finish
+    self.status = 'finished'
+    save
+  end
+
+  def finished?
+    self.status == 'finished'
+  end
+
   protected
 
   def set_default
