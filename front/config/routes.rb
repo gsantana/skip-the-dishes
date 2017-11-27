@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/orders/surprise', to: 'orders#surprise', as: 'surprise'
   get '/orders/:dish_id', to: 'orders#create', as: 'order'
+  get '/orders', to: 'orders#index', as: 'orders_index'
 
   root to: 'sessions#index'
 end

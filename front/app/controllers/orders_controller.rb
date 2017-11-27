@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+
+  def index
+    @orders = Order.where(customer_id: customer_id).all
+  end
+
   def create
     customer = current_customer
 
@@ -39,6 +44,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def customer_id
+    session[:customer_id]
+  end
 
   def endpoint
     ENV.fetch('API_URL', 'http://localhost:3000')

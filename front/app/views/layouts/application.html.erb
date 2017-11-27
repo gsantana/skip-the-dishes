@@ -45,6 +45,7 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Restaurants", restaurants_path  %></li>
             <li><%= link_to "Customers", customers_path  %></li>
+            <li><%= link_to "Orders", orders_index_path  %></li>
           </ul>
           <span class="navbar-text">
               <b> <%= "Hello, #{current_customer.first_name}!" if session_present? %> </b>

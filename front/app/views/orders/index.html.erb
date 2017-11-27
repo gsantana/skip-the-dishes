@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Dish</th>
+        <th scope="col">Scheduled</th>
+        <th scope="col">Status</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+        <th scope="row"><%=order.id%></th>
+        <th scope="row"><%=order.id%></th>
+        <td><%=order.deliver_late%></td>
+        <td>status</td>
+        <td>quantity</td>
+        <td>price</td>
+        <td>total</td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Home', root_path %>
