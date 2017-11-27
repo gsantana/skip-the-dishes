@@ -15,6 +15,12 @@ The Return of Investment could be impressive because of the Monthly Recurring Re
 ##Solution
 The main idea is to create a service responsible for scheduling orders and surprise the customer with a Dish which is chosen as result of Kmeans Machine Learnig Algorithm. 
 
+## Application in Production
+
+1. [Application Running](http://ec2-18-231-72-5.sa-east-1.compute.amazonaws.com/)
+2. [Sidekiq Running](http://ec2-18-231-72-5.sa-east-1.compute.amazonaws.com:3005/sidekiq)
+
+
 ## Kanban
 ![](./images/kanban.jpg)
 
@@ -52,6 +58,9 @@ The main idea is to create a service responsible for scheduling orders and surpr
 ![](images/surpriseme.png)
 #### Using the algorithm output to suggest a Dish
 ![](images/surprise_worker.png)
+
+
+
 
 
 
