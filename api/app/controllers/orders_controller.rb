@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
-    order.customer = Customer.find(customer_id)
     order.items << items
     order.save
     OrderExecutorWorker.perform_at(order.deliver_late, order.id)
@@ -20,22 +19,21 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params[:data][:attributes].permit!
+    params[:data][:attributes].permit(:deliver_late, :customer_id)
   end
 
   def customer_id
-    params[:data][:relationships][:customer][:data][:id]
+    params[:customer_id]
   end
 
   def items_params
-    params[:data][:relationships][:items][:data]
+    params[:data][:attributes][:items]
   end
 
   def items
-    items_params.map do |i| 
-      dish_id = i[:relationships][:dish][:id]
+    items_params.map do |i|
       item_attr = i[:attributes].permit!
-      Item.new({dish_id: dish_id }.merge(item_attr))
+      Item.new item_attr
     end
   end
 

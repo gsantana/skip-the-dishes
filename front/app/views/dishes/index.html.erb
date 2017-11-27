@@ -11,8 +11,9 @@
                 <p><b>Calories:</b> <%= dish.calories %></p>
                 <p><b>Price: $<%= sprintf('%05.2f', dish.price) %></b></p>
                 <p><%= link_to 'Show', restaurant_dish_path(@restaurant, dish) %></p>
+
                 <% if session_present? %>
-                <h3><%= link_to 'Order', restaurant_dish_path(@restaurant, dish) %></h3>
+                <h3><%= link_to 'Order', order_path(dish) %></h3>
                 <% end %>
             </div>
         </div>

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/login/:customer_id', to: 'sessions#login', as: 'logmein'
   get '/logout', to: 'sessions#logout', as: 'logmeout'
+
+  get '/order/:dish_id', to: 'orders#create', as: 'order'
 end

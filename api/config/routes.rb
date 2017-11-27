@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   post 'customers/:customer_id/orders/surprise', to: 'orders#surprise_order'
+  post 'customers/:customer_id/orders', to: 'orders#create'
 
-  resources :orders, only: :create
   mount Sidekiq::Web => '/sidekiq'
 end
