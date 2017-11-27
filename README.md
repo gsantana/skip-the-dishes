@@ -46,8 +46,11 @@ The main idea is to create a service responsible for scheduling orders and surpr
 ![](images/sidekiq.png)
 
 ### Machine Learnig Algorithm to Offer a Surprise Dish
-![](images/surpriseme.png)
+#### Clustering Process
 ![](images/cluster.png)
+#### Feature
+![](images/surpriseme.png)
+#### Using the algorithm output to suggest a Dish
 ![](images/surprise_worker.png)
 
 
