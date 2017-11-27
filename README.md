@@ -12,7 +12,7 @@ Imagine if our customer could schedule a delivery for a specific place, date and
 
 The Return of Investment could be impressive because of the Monthly Recurring Revenue (MRR). This initiative could increase the customer engagement since you have customer consuming products like plans.
 
-##Solution
+## Solution
 The main idea is to create a service responsible for scheduling orders and surprise the customer with a Dish which is chosen as result of Kmeans Machine Learnig Algorithm. 
 
 ## Application in Production
