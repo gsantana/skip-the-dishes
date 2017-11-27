@@ -28,6 +28,9 @@ The main idea is to create a service responsible for scheduling orders and surpr
 ![](./images/kanban.jpg)
 
 ## Refinement and Architecture
+### Model
+![](images/model.jpg)
+
 ### Create an order
 ![](images/create_order.jpg)
 
