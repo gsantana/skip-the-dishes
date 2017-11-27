@@ -1,24 +1,48 @@
 class OrdersController < ApplicationController
   def create
     customer = current_customer
-    unless customer
-      flash[:error] = 'Sorry, your session has expired'
+
+    if customer
+      item  = Item.new(quantity: 1, dish_id: dish_id)
+      order = Order.create(customer_id: customer.id,
+                           deliver_late: DateTime.now,
+                           items: [ JSON.parse(item.to_json) ])
+
+      if order.persisted?
+        flash[:success] = 'Your Order was registered!'
+      else
+        flash[:error] = 'Sorry, something went wrong!'
+      end
       redirect_to root_path
-    end
-
-    item  = Item.new(quantity: 1, dish_id: dish_id)
-    order = Order.create(customer_id: customer.id, deliver_late: DateTime.now, items: [ JSON.parse(item.to_json) ])
-
-    if order.persisted?
-      flash[:success] = 'Your Order was registered!'
     else
-      flash[:error] = 'Sorry, something went wrong!'
+      flash[:info] = 'You are not logged'
+      redirect_to customers_path
     end
+  end
 
-    redirect_to root_path
+  def surprise
+    customer = current_customer
+    if customer
+      uri = URI("#{endpoint}/customers/#{customer.id}/orders/surprise")
+
+      result = Net::HTTP.post_form(uri, q: 'surprise')
+      if result.code == '201'
+        flash[:success] = 'Your surprise was sent. See the result in your email'
+      else
+        flash[:error] = 'Something went wrong!'
+      end
+      redirect_to root_path
+    else
+      flash[:info] = 'You are not logged'
+      redirect_to customers_path
+    end
   end
 
   private
+
+  def endpoint
+    ENV.fetch('API_URL', 'http://localhost:3000')
+  end
 
   def order_params
     params.permit(:dish_id)

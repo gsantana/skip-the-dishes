@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+  def index
+    render :index
+  end
+
   def login
     customer = Customer.find(customer_id).first
     if customer

@@ -5,10 +5,12 @@ Rails.application.routes.draw do
     resources :dishes
   end
   resources :customers
-  root to: 'restaurants#index'
 
   get '/login/:customer_id', to: 'sessions#login', as: 'logmein'
   get '/logout', to: 'sessions#logout', as: 'logmeout'
 
-  get '/order/:dish_id', to: 'orders#create', as: 'order'
+  get '/orders/surprise', to: 'orders#surprise', as: 'surprise'
+  get '/orders/:dish_id', to: 'orders#create', as: 'order'
+
+  root to: 'sessions#index'
 end
