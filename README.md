@@ -1,20 +1,19 @@
-#Skip The Dishes - Delivery Scheduler
+# Skip The Dishes - Delivery Scheduler
 ## Problem
-Skip the Dishes is awesome in facilitating our life when we want to order great food without worries. However, we want to offer a different kind of feature and experience. Imagine if our customer could schedule a delivery for a specific place, date and time. This could be the beggining for recurring features like:
->  I would like to schedule a dish every single Friday
+Imagine if our customer could schedule a delivery for a specific place, date and time. This could be the beginning of recurring features like:
 
-or
- 
+> I would like to schedule a dish every single Friday
+
 > I would love to receive a surprise dish every Wednesday
 
-or for singles 
+> It would be great if I could receive a cheap and healthy food every day at home.
 
-> It would be great if I could receive a cheap and healthy food every day at home. 
+> I would love to surprise my wife every Wednesday with an exotic dish
 
-The Return of Investiment could be impressive because of the Monthly Recurring Revenue (MRR). This iniciative could increase the customer engagement, since you have customer consuming products like plans. 
+The Return of Investment could be impressive because of the Monthly Recurring Revenue (MRR). This initiative could increase the customer engagement since you have customer consuming products like plans.
 
 ##Solution
-The main idea is to create a service responsable for scheduling orders 
+The main idea is to create a service responsible for scheduling orders and surprise the customer with a Dish which is chosen as result of Kmeans Machine Learnig Algorithm. 
 
 ## Kanban
 ![](./images/kanban.jpg)
@@ -31,5 +30,27 @@ The main idea is to create a service responsable for scheduling orders
 
 ### Surprise me with delicious Food
 ![](images/surprise.jpg)
+
+## Result
+
+### Home
+![](images/home.png)
+
+### Restaurants
+![](images/restaurants.png)
+
+### Dishes
+![](images/dishes.png)
+
+### Sidekiq
+![](images/sidekiq.png)
+
+### Machine Learnig Algorithm to Offer a Surprise Dish
+![](images/surpriseme.png)
+![](images/cluster.png)
+![](images/surprise_worker.png)
+
+
+
 
 
